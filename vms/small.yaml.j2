@@ -1,0 +1,22 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: {{ vm_name }}
+  namespace: {{ namespace }}
+  labels:
+    tenant: {{ tenant }}
+    tier: small
+spec:
+  running: false
+  template:
+    spec:
+      domain:
+        cpu:
+          cores: 1
+        resources:
+          requests:
+            memory: 1Gi
+      volumes:
+        - name: rootdisk
+          containerDisk:
+            image: kubevirt/fedora-cloud-container-disk-demo

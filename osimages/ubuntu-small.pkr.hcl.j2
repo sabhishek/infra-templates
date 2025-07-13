@@ -1,0 +1,14 @@
+source "amazon-ebs" "ubuntu-small" {
+  region      = "{{ region }}"
+  source_ami  = "{{ base_ami }}"
+  instance_type = "t2.micro"
+  ssh_username = "ubuntu"
+  ami_name    = "ubuntu-small-{{ timestamp }}"
+}
+
+build {
+  sources = ["source.amazon-ebs.ubuntu-small"]
+  provisioner "shell" {
+    inline = ["echo Building small image..."]
+  }
+}
