@@ -17,3 +17,4 @@ Each template accepts `{{ variable }}` substitutions from the API processor. Tem
 
 - Use `custom.yaml.j2` to create your own pattern.
 - Override labels, annotations, resources as needed.
+- test
